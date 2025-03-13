@@ -1,5 +1,5 @@
 <p align="center">
-    <img alt="Logo for Skip to the Recipe" src="">
+    <img alt="Logo for Skip to the Recipe" src="https://raw.githubusercontent.com/NolanHep/skip-to-the-recipe/refs/heads/main/src/resources/assets/logo-long.svg">
 </p>
 
 <p align="center">
