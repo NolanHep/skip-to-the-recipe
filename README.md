@@ -22,14 +22,11 @@ If you're planing on contributing code or just someone curious like me looking t
 
 ```
 skip-to-the-recipe/
+├─ serve-templates (Repeated html such as headers and footers)
 ├─ src/ (HTML Pages)
 │  ├─ documentation (API Doc Files)
 │  ├─ resources (Images, Styles, Scripts, ect. Files)
-├─ serve-templates (Repeated html such as headers and footers)
 ├─ .gitignore
-├─ analytics.js (Middleware for tracking visits)
-├─ analytics.json (Analytics data)
-├─ CHANGELOG.md (The changelog containing update info)
 ├─ LICENSE (License for the project)
 ├─ package.json
 ├─ README.md (This file you're reading)
