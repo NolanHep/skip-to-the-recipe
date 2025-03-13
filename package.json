@@ -1,0 +1,19 @@
+{
+  "name": "skip-to-the-recipe",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "NolanHep",
+  "license": "MIT",
+  "description": "Have you ever opened a recipe, only to spend time scrolling to find its instructions? Use Skip to the Recipe to quickly and effortlessly gather the essential parts of the recipe.",
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "express": "^4.21.2",
+    "file-system": "^2.2.2",
+    "puppeteer": "^23.10.4",
+    "valid-url": "^1.0.9"
+  }
+}

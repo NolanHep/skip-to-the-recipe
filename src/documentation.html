@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Documentation • Skip To The Recipe</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <base href="/">
+        {{default-head}}
+        <style>
+            @media screen and (min-width: 800px) {
+                /* desktop */
+                main {
+                    display: grid;
+                    grid-template-columns: 15em 1fr;
+                }
+                main > nav button {
+                    display: none;
+                }
+                main > div > section {
+                    max-width: calc(100vw - 15em - 40px);
+                }
+            }
+            @media screen and (max-width: 800px) {
+                /* mobile */
+                main {
+                    position: relative;
+                }
+                main > nav {
+                    height: calc(100% - 40px);
+                    width: 15em;
+                    position: absolute;
+                    top: 0; left: calc(-15em - 40px);
+                    z-index: 2;
+                    transition: all .4s linear;
+                }
+                main > nav.open {
+                    left: 0;
+                }
+                main > nav > div {
+                    position: relative;
+                }
+                main > nav > div > button {
+                    position: absolute;
+                    top: 10px; right: -10px;
+                    transform: translate(150%, -50%);
+                    width: 40px; height: 40px;
+                    border-radius: .5rem;
+                    border: none;
+                    background-color: rgba(0, 0, 0, 0.25);
+                    color: rgba(255, 255, 255, 0.85);
+                    font-size: 1.15rem;
+                }
+                main > nav > div > button:hover {
+                    background-color: rgba(0, 0, 0, 0.30);
+                }
+                main > nav.open > div > button {
+                    transform: scale(-1, 1) translate(-60px, -50%);
+                }
+
+                main > div > section {
+                    max-width: 100vw;
+                }
+            }
+
+            main > nav {
+                background-color: var(--background-accent);
+                padding: 20px;
+                outline: 1px solid var(--background-secondary-accent);
+            }
+            main > nav > div > *:first-child {
+                margin-top: 0;
+            }
+            nav ul {
+                transform: translateX(-7.5px);
+                list-style: none;
+                padding-left: 0;
+            }
+            nav ul ul {
+                margin-left: 15px;
+            }
+            nav ul > li {
+                font-weight: bold;
+            }
+            nav ul > li {
+                padding: 5px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+            nav ul > li:hover, nav ul > li.selected {
+                background-color: var(--background-secondary-accent);
+                border-radius: var(--rounded-s);
+            }
+            nav ul ul > li {
+                font-weight: normal;
+            }
+            nav ul > li > a {
+                display: block;
+                text-decoration: none;
+                color: var(--text-color);
+                cursor: pointer;
+            }
+
+            main > div > section {
+                display: none;
+                min-height: 100svh;
+                padding: 20px;
+            }
+            main > div > section:first-child {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            main > div > section > *:first-child{
+                margin-top: 0;
+            }
+            main > div > section > *:last-child {
+                margin-bottom: 0;
+            }
+            main > div > section > h1, main > div > section > h3 {
+                margin-bottom: 10px;
+                margin-top: 30px;
+            }
+            main > div > section > h1 + p, main > div > section > h3 + p {
+                margin-top: 0;
+            }
+            main > div > section > h1 > div {
+                display: inline-block;
+                background-color: var(--background-accent);
+                font: var(--text-font);
+                font-family: monospace;
+                padding: 4px;
+                padding-right: 8px;
+                margin: 0;
+                border-radius: var(--rounded-s);
+            }
+            main > div > section > h1 > div > b {
+                display: inline-block;
+                background-color: var(--background-secondary-accent);
+                font: var(--text-font);
+                font-weight: bold;
+                padding: 4px;
+                border-radius: var(--rounded-s);
+            }
+            main > div > section p {
+                line-height: 1.5;
+            }
+            main > div > section code {
+                background-color: var(--background-accent);
+                padding: 4px;
+                border-radius: var(--rounded-s);
+                font-size: 0.95rem;
+            }
+            blockquote {
+                background-color: var(--background-accent);
+                border-radius: var(--rounded-l);
+                margin: 5px 0;
+                max-width: 100%;
+                overflow: hidden;
+                box-sizing: border-box;
+            }
+            blockquote > div:first-child {
+                display: flex;
+                justify-content: space-between;
+                background-color: var(--background-secondary-accent);
+                padding: 10px 15px;
+            }
+            blockquote > div:first-child > i {
+                cursor: pointer;
+                transition: all .1s linear;
+            }
+            blockquote > div:first-child > i:hover {
+                transform: scale(1.1);
+            }
+            blockquote > div:first-child > i:active {
+                transform: scale(0.9);
+            }
+            blockquote > div:last-child {
+                padding: 15px;
+                font-family: monospace; 
+                white-space: nowrap;
+                overflow-x: scroll;
+                overflow-y: hidden;
+                display: block;
+                max-width: 100%;
+                scrollbar-color: var(--background-accent) var(--background-accent);
+                scrollbar-width: thin;
+            }
+
+            section[data-name="getting-started"] > .endpoints {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, .33fr));
+                gap: 20px;
+            }
+            section[data-name="getting-started"] > .endpoints > div {
+                background-color: var(--background-accent);
+                border-radius: var(--rounded-m);
+                overflow: hidden;
+            }
+            section[data-name="getting-started"] > .endpoints > div > div {
+                position: relative;
+            }
+            section[data-name="getting-started"] > .endpoints > div > div > img {
+                width: 100%; height: 150px;
+                object-fit: cover;
+            }
+            section[data-name="getting-started"] > .endpoints > div > p {
+                margin: 5px 10px;
+            }
+            section[data-name="getting-started"] > .endpoints > div > a {
+                display: inline-block;
+                padding: 5px 15px;
+                background-color: var(--brand-green);
+                text-decoration: none;
+                color: white;
+                border-radius: var(--rounded-m);
+                margin: 5px 10px 10px 10px;
+            }
+        </style>
+    </head>
+    <body>
+        {{header}}
+        <main>
+            <nav class="close">
+                <div>
+                    <ul>
+                        <li><a href="/documentation/getting-started">Getting Started</a></li>
+                        <li>
+                            <a>Endpoints</a>
+                        </li>
+                        <ul>
+                            <li><a href="/documentation/endpoints/v1/recipe">Recipe</a></li>
+                        </ul>
+                        <li><a href="/documentation/making-a-request">Making a Request</a></li>
+                        <li><a href="/documentation/handling-responses">Handling Responses</a></li>
+                    </ul>
+                    <button onclick="app.nav.toggle()">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </nav>
+            <div>
+                <section data-name="loading">
+                    <span onclick="document.querySelector('nav').classList.toggle('open');">toggle</span>
+                    <span class="loader"></span>
+                </section>
+                <section data-name="getting-started">
+                    <h1>Getting Started</h1>
+                    <p>Welcome to the official Skip To The Recipe API documentation! This guide will help you understand how to use our API effectively. Our API is designed to be simple and intuitive, allowing you to easily integrate our features into your applications.</p>
+                    <p>To get started, you can check out our endpoints and see how to make requests and handle responses.</p>
+
+                    <h3>Endpoints</h3>
+                    <div class="endpoints">
+                        <div>
+                            <div>
+                                <img src="/resources/banners/ella-olsson.jpg" alt="Recipe" />
+                            </div>
+                            <p>Gather recipe name, image, ingredients, and directions from recipe links</p>
+                            <a href="/documentation/endpoints/v1/recipe">Visit</a>
+                        </div>
+                    </div>
+                </section>
+                <section data-name="endpoints/v1/recipe">
+                    <h1>
+                        Recipe 
+                        <div>
+                            <b>POST</b> /api/v1/recipe
+                        </div>
+                    </h1>
+                    <p>Our recipe endpoint lets you integrate our recipe-fetching feature into your next project. With this powerful tool, you can automatically gather ingredients and instructions from recipe links—perfect for creating a streamlined user experience.</p>
+                    
+                    <h3>Request</h3>
+                    <p>Making a request is as simple as placing the recipe URL in the <code>url</code> query parameter and setting the request method to <code>post</code></p>
+                    <blockquote>
+                        <div>
+                            <span>URL</span><i class="fa-solid fa-copy" onclick="navigator.clipboard.writeText(this.parentElement.parentElement.querySelector('div:last-child').textContent.trim());"></i>
+                        </div>
+                        <div>
+                            https://skip-to-the-recipe.vercel.app/api/v1/recipe?url={Recipe URL}
+                        </div>
+                    </blockquote>
+
+                    <h3>Response</h3>
+                    <p>Bellow you can see an example of a response containing the recipe name, image, ingredients and directions. There are also a few errors you may encounter instead such as missing url parameter and invalid url.</p>
+                    <p>Keep in mind that the <code>image</code> parameter sometimes isn't in the response, because no image was found.</p>
+                    <blockquote>
+                        <div>
+                            <span>JSON</span><i class="fa-solid fa-copy" onclick="navigator.clipboard.writeText(this.parentElement.parentElement.querySelector('div:last-child').textContent.trim());"></i>
+                        </div>
+                        <div>
+                            {<br />
+                            &nbsp;"name": "Good Old-Fashioned Pancakes",<br />
+                            &nbsp;"image": "{image-url}",<br />
+                            &nbsp;"ingredients": [<br />
+                            &nbsp;&nbsp;"1 ½ cups all-purpose flour",<br />
+                            &nbsp;&nbsp;"3 ½ teaspoons baking powder",<br />
+                            &nbsp;&nbsp;"1 tablespoon white sugar",<br />
+                            &nbsp;&nbsp;"¼ teaspoon salt, or more to taste ",<br />
+                            &nbsp;&nbsp;"1 ¼ cups milk",<br />
+                            &nbsp;&nbsp;"3 tablespoons butter, melted",<br />
+                            &nbsp;&nbsp;"1 large egg"<br />
+                            &nbsp;],<br />
+                            &nbsp;"directions": [<br />
+                            &nbsp;&nbsp;"Sift flour, baking powder, sugar, and salt together in a large",<br />
+                            &nbsp;&nbsp;"Heat a lightly oiled griddle or pan over medium-high heat. Pour"<br />
+                            &nbsp;]<br />
+                            }
+                        </div>
+                    </blockquote>
+                </section>
+                <section data-name="making-a-request">
+                    <h1>Making a Request</h1>
+                    <p>Making a requets to our API is quick, simple, and downright easy. Each endpoint has its own request method, URl, and parameters, so just follow the instructions for your selected ednpoint.</p>                  
+                </section>
+                <section data-name="handling-responses">
+                    <h1>Handling Responses</h1>
+                    <p>When you make a request to our API, you will receive a response. The response will contain the data you requested, along with any relevant metadata.</p>
+                    <p>At the moment, all our endpoints respond in <code>JSON</code> format, which is easy to parse and work with in most programming languages.</p>
+                    
+                    <h3>Receiving Errors</h3>
+                    <p>Instead of a response with data, you could receive an error, which are also send in <code>JSON</code> format. The <code>message</code> parameter provides you with a easy and simple understanding of what happend alongside the <code>error</code> parameter. The <code>error</code> parameter gives you more detailed of a description about the problem, but note that this parameter isn't always sent, meaning it shouldn't be used to rely on detecting an error. It's also good practice to not rely on the <code>message</code> parameter, nor any parameter for that mater if possible.</p>
+                    <p> I hope this page explanation assisted you in understand what happened, but if it didn't, create a <a href="https://github.com/NolanHep/skip-to-the-recipe/issues" target="_blank">GitHub issues</a> and the community, including me, will help.</p>
+                </section>
+            </div>
+        </main>
+        {{footer}}
+        <script>
+            window.onload = () => {
+                const path = window.location.pathname.split("/documentation/")[1];
+
+                document.querySelector("section[data-name='loading']").style.display = "none";
+
+                try {
+                    document.querySelector(`section[data-name="${path}"]`).style.display = "block"; 
+                } catch (e) {
+                    window.open("/documentation/getting-started", "_self");
+                }
+                
+                document.querySelector(`nav ul li > a[href="/documentation/${path}"]`).parentElement.classList.add("selected");
+            };
+
+            const app = {
+                nav: {
+                    toggle: function() {
+                        const nav = document.querySelector("nav");
+
+                        if (nav.classList.contains("open")) { 
+                            nav.classList.replace("open", "close"); 
+                        } else { 
+                            nav.classList.replace("close", "open"); 
+                        } 
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

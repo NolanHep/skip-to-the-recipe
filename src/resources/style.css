@@ -1,0 +1,107 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --brand-green: #a3d977;
+    --brand-green-accent: #6AB547; 
+    --background: #F8F8F8;
+    --background-accent: #E0E0E0;
+    --background-secondary-accent: #c8c8c8;
+    --heading-color: #000000;
+    --heading-font: "Montserrat", serif;
+    --text-color: #333333;
+    --text-font: 17px "Roboto", serif;
+    --hightlight-color: #FFD166;
+    --rounded-s: 4px;
+    --rounded-m: 7px;
+    --rounded-l: 11px;
+    --rounded-xxl: 32px;
+}
+
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    margin: 0;
+    color: var(--text-color);
+    background-color: var(--background);
+    font: var(--text-font);
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+    font-family: var(--heading-font);
+}
+
+input {
+    font: var(--text-font);
+}
+input::placeholder {
+    font: var(--text-font);
+}
+input {
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+hr {
+    border: none;
+    border-bottom: 2px solid var(--background-accent);
+    border-radius: var(--rounded-s);
+}
+
+.recipe-form > .group {
+    display: flex;
+    align-items: center;
+    background-color: var(--brand-green);
+    border-radius: 32px;
+    height: 32px;
+    padding: 5px;
+    padding-left: 10px;
+}
+.recipe-form > .group > input {
+    width: calc(100% - 17px - 10px - 5px); /* button-width, parent-padding, extra-left-padding*/
+    background-color: transparent;
+    color: white;
+    border: none;
+}
+.recipe-form > .group > input::placeholder {
+    color: rgba(255, 255, 255, 0.65);
+}
+.recipe-form > .group > button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    width: 32px; height: 32px;
+    color: var(--brand-green);
+    font-size: 19px;
+    border-radius: 32px;
+    background-color: var(--brand-green-accent);
+    padding: 7.5px;
+    cursor: pointer;
+}
+
+.loader {
+    display: block;
+    border: 7px solid var(--background-accent);
+    border-top: 7px solid var(--brand-green);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    animation: spin 2s ease-in-out infinite;
+}
+  
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

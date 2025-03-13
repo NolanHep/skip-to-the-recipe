@@ -1,0 +1,46 @@
+{
+  "scrape": {
+    "http://localhost:8080/": 30,
+    "unknown": 37,
+    "http://localhost:8080/https://www.allrecipes.com/recipe/275489/chef-johns-american-goulash/": 1,
+    "http://localhost:8080/https://www.apple.com": 2,
+    "http://localhost:8080/privacy-policy": 1,
+    "http://192.168.4.56:8080/": 2
+  },
+  "/": {
+    "unknown": 4,
+    "/": 53
+  },
+  "unknown": {
+    "http://localhost:8080/https://www.allrecipes.com/recipe/275489/chef-johns-american-goulash/": 1,
+    "http://localhost:8080/privacy-policy": 2,
+    "http://localhost:8080/documentation": 3,
+    "http://localhost:8080/": 131,
+    "unknown": 35,
+    "http://localhost:8080/https://www.allrecipes.com/recipe/21014/good-old-fashioned-pancakes/": 1,
+    "http://192.168.4.56:8080/https://www.allrecipes.com/recipe/21014/good-old-fashioned-pancakes/": 1,
+    "http://192.168.4.56:8080/documentation/endpoints/v1/recipe": 1,
+    "http://192.168.4.56:8080/documentation/requests-and-responses": 1
+  },
+  "documentation": {
+    "http://localhost:8080/": 74,
+    "unknown": 204,
+    "http://localhost:8080/documentation": 49,
+    "http://localhost:8080/documentation/request": 34,
+    "http://localhost:8080/documentation/getting-started": 167,
+    "http://localhost:8080/documentation/endpoints/recipe": 13,
+    "http://localhost:8080/documentation/response": 115,
+    "http://localhost:8080/documentation/endpoints/v1/recipe": 57,
+    "http://localhost:8080/documentation/getting-star": 1,
+    "http://localhost:8080/documentation/requests-and-responses": 2,
+    "http://localhost:8080/privacy-policy": 1,
+    "http://localhost:8080/https://www.allrecipes.com/recipe/21014/good-old-fashioned-pancakes/": 1,
+    "http://192.168.4.56:8080/privacy-policy": 1,
+    "http://192.168.4.56:8080/documentation": 9,
+    "http://192.168.4.56:8080/https://www.allrecipes.com/recipe/21014/good-old-fashioned-pancakes/": 1,
+    "http://192.168.4.56:8080/documentation/getting-started": 4,
+    "http://192.168.4.56:8080/": 3,
+    "http://localhost:8080/documentation/making-a-request": 6,
+    "http://localhost:8080/documentation/handling-responses": 1
+  }
+}

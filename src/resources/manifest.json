@@ -1,0 +1,14 @@
+{
+  "short_name": "Skip to the Recipe",
+  "name": "Skip to the Recipe",
+  "icons": [
+    {
+      "src": "/resources/assets/icon.ico",
+      "type": "image/ico"
+    }
+  ],
+  "start_url": "/#",
+  "display": "standalone",
+  "theme_color": "#A3D977",
+  "background_color": "#F8F8F8"
+}

@@ -1,0 +1,34 @@
+<header>
+    <img src="resources/assets/logo-long.svg" alt="Skip to the Recipe Logo" onclick="window.open('/', '_self')" />
+    <form class="recipe-form" onsubmit="window.open('/' + this.querySelector('div input').value, '_self'); return false;">
+        <div class="group">
+            <input type="url" placeholder="https://example.com/yummy-recipe/" />
+            <button type="submit"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+    </form>
+</header>
+<style>
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 4rem;
+        background-color: var(--brand-green);
+        padding: 15px;
+    }
+    header > img {
+        height: 100%;
+        cursor: pointer;
+    }
+    header > .recipe-form {
+        width: 40%;
+        max-width: 50%;
+    }
+    header > .recipe-form > .group {
+        background-color: var(--brand-green-accent);
+    }
+    header > .recipe-form > .group > button {
+        background-color: var(--brand-green);
+        color: var(--brand-green-accent);
+    }
+</style>
