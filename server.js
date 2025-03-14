@@ -11,13 +11,17 @@ app.get("/", (req, res) => {
     return res.serve("index.html");
 });
 
-app.get("/https:/*", (req, res) => {
+app.get(/\/https:\/[^\/]/, (req, res) => {
+    return res.redirect(req.url.replace("https:/", "https://"));
+});
+
+app.get("/https://*", (req, res) => {
     return res.serve("index.html");
 });
 
 app.post("/api/v1/recipe", async (req, res) => {
     const { url } = req.query;
-
+    
     if (!url) return res.status(400).send({ message: "Something went wrong.", error: "Parameter 'url' is missing" });
     if (!validUrl.isUri(url)) return res.status(400).send({ message: "Invalid URL" });
 
