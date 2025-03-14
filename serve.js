@@ -2,7 +2,7 @@ const path = require("path");
 const fs = require("file-system");
 
 let templates = {};
-let folderPath = "serve-templates";
+let folderPath = path.join(__dirname, "serve-templates");
 
 try {
     const files = fs.readdirSync(folderPath);
