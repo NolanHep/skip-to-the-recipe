@@ -2,9 +2,3 @@ node_modules
 .DS_Store
 .vscode
 package-lock.json
-TODO.md
-
-# Unwanted files
-analytics.js
-analytics.json
-CHANGELOG.md
