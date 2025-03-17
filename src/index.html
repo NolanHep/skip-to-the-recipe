@@ -297,7 +297,7 @@
         <main>
             <div>
                 <img src="resources/assets/logo-long.svg" alt="Skip to the Recipe Logo"/>
-                <form class="recipe-form" onsubmit="window.open('/' + this.querySelector('div input').value, '_self'); return false;">
+                <form class="recipe-form" onsubmit="window.open('/' + encodeURIComponent(this.querySelector('div input').value, '_self')); return false;">
                     <p>Paste a recipe link in the box below, and we'll grab the ingredients and instructions for you—simple, clean, and free of ads, popups, or long personal stories. Enjoy cooking!</p>
                     <div class="group">
                         <input type="url" placeholder="https://example.com/yummy-recipe/" />

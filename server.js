@@ -11,11 +11,7 @@ app.get("/", (req, res) => {
     return res.serve("index.html");
 });
 
-app.get(/\/https:\/[^\/]/, (req, res) => {
-    return res.redirect(req.url.replace("https:/", "https:\/\/"));
-});
-
-app.get("/https://*", (req, res) => {
+app.get("/http*://*", (req, res) => {
     return res.serve("index.html");
 });
 
