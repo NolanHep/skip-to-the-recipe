@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
     return res.serve("index.html");
 });
 
-app.get("/http*://*", (req, res) => {
+app.get("/https%3A%2F%2F*", (req, res) => {
     return res.serve("index.html");
 });
 

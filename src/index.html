@@ -381,7 +381,7 @@
             const { jsPDF } = window.jspdf;
 
             let recipe = {
-                url: window.location.pathname.replace("/", ""),
+                url: decodeURIComponent(window.location.pathname.replace("/", "")),
                 image: null, title: null, ingredients: null, directions: null,
                 share: {
                     show: function() {
@@ -612,7 +612,7 @@
                 const button = form.querySelector("button");
 
                 input.value = recipe.url;
-                const url = input.value;
+                const url = decodeURIComponent(input.value);
 
                 button.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
 
