@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
 });
 
 app.get(/\/https:\/[^\/]/, (req, res) => {
-    return res.redirect(req.url.replace("https:/", "https://"));
+    return res.redirect(req.url.replace("https:/", "https:\/\/"));
 });
 
 app.get("/https://*", (req, res) => {
