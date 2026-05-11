@@ -1,9 +1,9 @@
 <p align="center">
-    <img alt="Logo for Skip to the Recipe" src="https://raw.githubusercontent.com/NolanHep/skip-to-the-recipe/refs/heads/main/src/resources/assets/logo-long.svg" width="400">
+    <img alt="Logo for Skip to the Recipe" src="https://raw.githubusercontent.com/NolanHep/skip-to-the-recipe-legacy/refs/heads/main/src/resources/assets/logo-long.svg" width="400">
 </p>
 
 <p align="center">
-  <a href="https://skip-to-the-recipe.vercel.app/">Website</a> | <a href="https://skip-to-the-recipe.vercel.app/documentation">Docs</a> | <a href="https://github.com/NolanHep/skip-to-the-recipe/issues">Support</a>
+  <a href="https://skip-to-the-recipe-legacy.vercel.app/">Website</a> | <a href="https://skip-to-the-recipe-legacy.vercel.app/documentation">Docs</a> | <a href="https://github.com/NolanHep/skip-to-the-recipe/issues">Support</a>
 </p>
 
 Just by entering a recipe link, Skip to the Recipe will retrieve the ingredients and instructions in a matter of seconds. Quickly locate only the portions you need without scrolling and without being inundated with advertisements. Use Skip to the Recipe too quickly and easily to collect the recipe's key components.
